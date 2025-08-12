@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hack South Jersey - High School Hackathon</title>
+
+  <!-- Pixel Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Courier New', Courier, monospace;
+      background: #000;
+      color: #00ffff;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      border-bottom: 2px solid #00ffff;
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: #00ffff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+
+    section {
+      padding: 120px 20px 80px;
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    section::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('https://images.stockcake.com/public/c/7/1/c71406fc-cfc2-46d4-b279-1250680cc145/neon-tech-terminal-stockcake.jpg') center/cover no-repeat;
+      filter: brightness(0.5);
+      z-index: -2;
+    }
+
+    .box {
+      border: 2px solid #0ff;
+      padding: 1rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 10px;
+      width: 90%;
+      max-width: 800px;
+      text-align: center;
+    }
+
+    .glow {
+      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .location-box {
+      background-color: #101010;
+      color: #fff;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-left: 4px solid #00ffff;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin: 0.7rem 0;
+    }
+
+    .countdown-container {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .count-box {
+      text-align: center;
+    }
+
+    .count-digit {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 2rem;
+      background-color: rgba(0, 255, 255, 0.1);
+      border: 2px solid #00ffff;
+      padding: 0.7rem 1.2rem;
+      color: #00ffff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #0ff;
+      margin-bottom: 0.4rem;
+    }
+
+    .count-label {
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: #00ffff;
+      font-family: 'Courier New', monospace;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      margin: 10px;
+      background-color: #00ffff;
+      color: #000;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 0 10px #0ff;
+    }
+
+    .btn:hover {
+      background-color: #00cccc;
+    }
+
+    .schedule-list {
+      text-align: left;
+      color: #fff;
+    }
+
+    .schedule-list li {
+      margin: 0.5rem 0;
+      font-size: 1.2rem;
+    }
+
+    .time {
+      color: #00ffff;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+
+    .contact-info {
+      text-align: center;
+    }
+
+    .contact-info a {
+      color: #00ffff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .contact-info img {
+      width: 20px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="#home" style="display:flex; align-items:center; gap:10px;">
+      <img src="https://incntr.com/wp-content/uploads/2023/02/Logo-new-2018-retina.png" 
+           alt="SJIC Logo" 
+           style="height:40px; width:auto; vertical-align:middle;">
+    </a>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- HOME SECTION -->
+  <section id="home">
+    <div class="box">
+      <h1 class="glow">HACK SOUTH JERSEY</h1>
+      <p><strong>September 27th, 2025</strong></p>
+      <p>9:00 AM to 9:00 PM</p>
+
+      <div class="countdown-container">
+        <div class="count-box">
+          <div id="days" class="count-digit">00</div>
+          <div class="count-label">DAYS</div>
+        </div>
+        <div class="count-box">
+          <div id="hours" class="count-digit">00</div>
+          <div class="count-label">HOURS</div>
+        </div>
+        <div class="count-box">
+          <div id="minutes" class="count-digit">00</div>
+          <div class="count-label">MINUTES</div>
+        </div>
+        <div class="count-box">
+          <div id="seconds" class="count-digit">00</div>
+          <div class="count-label">SECONDS</div>
+        </div>
+      </div>
+
+      <p>
+        <a href="https://www.jotform.com/build/252189037424054?iak=1e4dce2c6cb56edebe22edd52280e7d9-f49a4ad24551c3dd" target="_blank" class="btn">
+          Register Here
+        </a>
+        <a href="https://discord.gg/ZVMwVfxK" target="_blank" class="btn">
+          Join Discord
+        </a>
+      </p>
+
+      <div class="location-box">
+        S498 KINGS HWY N, SUITE 102<br />
+        CHERRY HILL TOWNSHIP, NJ 08034
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about">
+    <div class="box">
+      <h2 class="glow">About Hack South Jersey</h2>
+      <p>
+        Hack South Jersey (HSJ) is the first-ever high school hackathon hosted by the South Jersey Innovation Center (SJIC), and we’re thrilled to bring this opportunity to local students! On Saturday, September 27th, from 9 AM to 9 PM, high schoolers from across the region will gather for a day filled with creativity, collaboration, and innovation.
+      </p>
+      <p>
+        More than just a tech competition, HSJ is a place to work in teams, brainstorm ideas, and build real solutions together—whether you're a newbie or a coding whiz.
+      </p>
+      <p>
+        Plus, by joining our Discord, you'll stay updated on everything—team organization, workshop details, updates, and more!
+      </p>
+    </div>
+  </section>
+
+  <!-- SCHEDULE SECTION -->
+  <section id="schedule">
+    <div class="box">
+      <h2 class="glow">Schedule for the Day</h2>
+      <ul class="schedule-list">
+        <li><span class="time">9:00 AM</span></li>
+        <li><span class="time">9:30 AM</span></li>
+        <li><span class="time">10:00 AM</span></li>
+        <li><span class="time">12:00 PM</span></li>
+        <li><span class="time">1:00 PM</span></li>
+        <li><span class="time">2:00 PM</span></li>
+        <li><span class="time">4:00 PM</span></li>
+        <li><span class="time">6:00 PM</span></li>
+        <li><span class="time">7:30 PM</span></li>
+        <li><span class="time">8:00 PM</span></li>
+        <li><span class="time">8:45 PM</span></li>
+        <li><span class="time">9:00 PM</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <div class="box">
+      <h2 class="glow">Contact & Socials</h2>
+      <div class="contact-info">
+        <p><strong>Email:</strong> <a href="mailto:hack@incntr.com">hack@incntr.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+18567242496">856-724-2496</a></p>
+        <p>
+          <a href="https://www.instagram.com/southjerseyinnovation/" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram Logo" />
+            @southjerseyinnovation
+          </a>
+        </p>
+        <p>
+          <a href="https://incntr.com/" target="_blank" 
+             style="display:inline-block; padding:10px 20px; background-color:#00ffff; color:#000; border-radius:8px; font-weight:bold; text-decoration:none; box-shadow:0 0 10px #0ff;">
+            Visit Our Official Website
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function updateCountdown() {
+      const eventDate = new Date("September 27, 2025 09:00:00").getTime();
+      const now = new Date().getTime();
+      const diff = eventDate - now;
+
+      if (diff <= 0) {
+        document.querySelector('.countdown-container').innerHTML = "The hackathon has started!";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("days").textContent = String(days).padStart(2, '0');
+      document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+      document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+      document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+
+</body>
+</html>
